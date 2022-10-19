@@ -1,26 +1,31 @@
 #!/usr/bin/python3
 """
-This module contain a function that prints a square
+This module contains a function that indents texts
 """
 
 
-def print_square(size):
-    """This function prints a square with the character #
+def text_indentation(text):
+    '''This function prints a text with 2 new lines after each ".", "?", or ":"
     Args:
-        size (int): This represents the length of the square
+        text (str): The string to be printed
     Raises:
-        TypeError: If size is not an integer
-        TypeError: If size is a float and less than zero
-        ValueError: If size is less than zero
-    """
+        TypeError: If text is not a string
+    '''
 
-    if not isinstance(size, int):
-        raise TypeError("size must be an integer")
-    elif size < 0:
-        raise ValueError("size must be >= 0")
-    elif isinstance(size, float) and size < 0:
-        raise TypeError("size must be an integer")
-    for n in range(0, size):
-        for m in range(size):
-            print("#", end="")
-        print("")
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+
+    count = 0
+    while count < len(text) and text[count] == " ":
+        count = count + 1
+
+    while count < len(text):
+        print(text[count], end="")
+        if text[count] == "\n" or text[count] in ".?:":
+            if text[count] in ".?:":
+                print("\n")
+            count = count + 1
+            while count < len(text) and text[count] == " ":
+                count = count + 1
+            continue
+        count = count + 1
