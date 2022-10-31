@@ -1458,4 +1458,4 @@ class TestRectangle_to_dictionary(unittest.TestCase):
             r.to_dictionary(1)
 
 if __name__ == "__main__":
-    unittest.
+    unittest.main()
